@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    public float PV;
-    public float Defence;
-    public float DamageVillage;
+    //public float CoefDefence;
 
     public void TakeDamage(float damage)
     {
-        PV -= damage;
-        if (PV <= 0) { Destroy(gameObject); }
+        //CoefDefence = ((100f - GetComponent<ZombieScript>().Defence) / 100f);
+        GetComponent<ZombieScript>().PV -= damage;
+        GetComponent<Animator>().SetTrigger("DamageEnemy");
+        if (GetComponent<ZombieScript>().PV <= 0) { Destroy(gameObject); }
     }
 }

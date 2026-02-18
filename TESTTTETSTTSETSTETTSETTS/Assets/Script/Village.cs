@@ -8,8 +8,8 @@ public class Village : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            TakeDamage(collision.GetComponent<HealthManager>().DamageVillage);
-            collision.GetComponent<HealthManager>().PV = -1;
+            TakeDamage(collision.GetComponent<ZombieScript>().DamageVillage);
+            collision.GetComponent<ZombieScript>().PV = -1;
             collision.GetComponent<HealthManager>().TakeDamage(1);
         }
     }
