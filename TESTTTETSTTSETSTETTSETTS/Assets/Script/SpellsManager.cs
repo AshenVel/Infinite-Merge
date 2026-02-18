@@ -6,30 +6,36 @@ public class SpellsManager : MonoBehaviour
 {
     public GameObject Target;
     public GameObject SpawnSpell;
-    public GameObject Meteor;
-    public GameObject Ball;
-    public GameObject Laser;
-    public GameObject Storm;
 
     // public GameObject Point;
     //public GameObject PointA;
     //public GameObject PointG;
     //public GameObject PointD;
 
+    public GameObject Meteor;
     private bool MeteorNow = false;
     public string MeteorEffect;
+    public float IncantationTimeMeteor = 2f;
 
+    public GameObject Ball;
     private bool BallNow = false;
     public string BallEffect;
+    public float IncantationTimeBall = 0.5f;
 
+    public GameObject Laser;
     private bool LaserNow = false;
     public string LaserEffect;
+    public float IncantationTimeLaser = 0f;
 
+    public GameObject Storm;
     private bool StormNow = false;
     public string StormEffect;
-
-    public void SpellLauncher(string Type,string EffectChoose)
+    public float IncantationTimeStorm = 2f;
+    public void SpellLauncher(string Type,string EffectChoose,Vector3 CoTarget)
     {  
+
+        Target.transform.position = CoTarget;
+
         if (Type == "meteor")
         {
             if (!MeteorNow)
@@ -67,27 +73,28 @@ public class SpellsManager : MonoBehaviour
     private IEnumerator DoMeteor()
     {
         MeteorNow = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(IncantationTimeMeteor);
         Instantiate(Meteor, Target.transform.position, Meteor.transform.rotation);
         MeteorNow = false;
     }
     private IEnumerator DoBall()
     {
         BallNow = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(IncantationTimeBall);
         Instantiate(Ball, SpawnSpell.transform.position, Ball.transform.rotation);
         BallNow = false;
     }
-    private void DoLaser()
+    private IEnumerator DoLaser()
     {
         LaserNow = true;
+        yield return new WaitForSeconds(IncantationTimeLaser);
         Instantiate(Laser, Target.transform.position, Laser.transform.rotation);
         LaserNow = false;
     }
     private IEnumerator DoStorm()
     {
         StormNow = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(IncantationTimeStorm);
         Instantiate(Storm, Target.transform.position, Storm.transform.rotation);
         StormNow = false;
     }

@@ -10,7 +10,7 @@ public class TestSpellActive : MonoBehaviour
 
     public void FEU()
     {
-        Player.GetComponent<SpellsManager>().SpellLauncher(Type, Effect);
+        Player.GetComponent<SpellsManager>().SpellLauncher(Type, Effect, new Vector3(0,0,0));
     }
 
     

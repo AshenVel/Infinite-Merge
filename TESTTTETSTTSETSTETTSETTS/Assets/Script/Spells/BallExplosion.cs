@@ -6,6 +6,8 @@ public class BallExplosion : MonoBehaviour
 
     private float TimeIs = 0;
 
+    public float Damage = 20;
+
 
     private void Start()
     {
@@ -16,7 +18,7 @@ public class BallExplosion : MonoBehaviour
     {
         if (collision.GetComponent<ZombieScript>())
         {
-            collision.GetComponent<HealthManager>().TakeDamage(20);
+            collision.GetComponent<HealthManager>().TakeDamage(Damage);
             collision.GetComponent<EffectManager>().ApplyEffect(Player.GetComponent<SpellsManager>().BallEffect);
         }
     }

@@ -10,6 +10,8 @@ public class Storm : MonoBehaviour
     private bool Active = true;
     private float TimeIs = 0;
 
+    public float TimeOnStage = 3f;
+
     private List<GameObject> Apply = new List<GameObject>();
 
     private void Start()
@@ -48,13 +50,13 @@ public class Storm : MonoBehaviour
 
 
         TimeIs += Time.deltaTime;
-        if (TimeIs > 3f && Active)
+        if (TimeIs > TimeOnStage && Active)
         {
             Active = false;
 
             GetComponent<Animator>().SetBool("Disappear", true);
         }
-        if (TimeIs > 4.2f)
+        if (TimeIs > TimeOnStage + 1.2f)
         {
             Destroy(gameObject);
         }

@@ -7,6 +7,8 @@ public class Laser : MonoBehaviour
     private bool Active = true;
     private float TimeIs = 0;
 
+    public float Damage = 15;
+
     private void Start()
     {
         Player = GameObject.Find("Player");
@@ -18,7 +20,7 @@ public class Laser : MonoBehaviour
         {
             if (collision.GetComponent<ZombieScript>())
             {
-                collision.GetComponent<HealthManager>().TakeDamage(15);
+                collision.GetComponent<HealthManager>().TakeDamage(Damage);
                 collision.GetComponent<EffectManager>().ApplyEffect(Player.GetComponent<SpellsManager>().LaserEffect);
             }
         }
