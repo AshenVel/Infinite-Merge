@@ -10,13 +10,17 @@ public class Storm : MonoBehaviour
     private bool Active = true;
     private float TimeIs = 0;
 
+    private string Effect;
+
     public float TimeOnStage = 3f;
 
     private List<GameObject> Apply = new List<GameObject>();
 
     private void Start()
     {
-        Player = GameObject.Find("Player");
+            Player = GameObject.Find("Player");
+        Effect = Player.GetComponent<SpellsManager>().StormEffect;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,11 +44,24 @@ public class Storm : MonoBehaviour
 
     private void Update()
     {
+        if (Effect == "fire")
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        else if (Effect == "ice")
+        {
+            GetComponent<SpriteRenderer>().color = Color.lightBlue;
+        }
+        else if (Effect == "thunder")
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+
         if (Apply.Count > 0)
         {
             foreach (GameObject Obj in Apply)
             {
-                Obj.GetComponent<EffectManager>().ApplyEffect(Player.GetComponent<SpellsManager>().StormEffect);
+                Obj.GetComponent<EffectManager>().ApplyEffect(Effect);
             }
         }
 

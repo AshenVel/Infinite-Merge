@@ -9,6 +9,7 @@ public class ZombieScript : MonoBehaviour
     public float DamageVillage = 10;
     public float Xp = 1;
 
+
     private Rigidbody2D rb;
 
     private void Start()

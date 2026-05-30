@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4573438839822948860}
   - component: {fileID: 3602212722125358980}
   - component: {fileID: 6113750479999190069}
-  - component: {fileID: 4148817261753200384}
   - component: {fileID: -4691115734922866635}
+  - component: {fileID: 2419400455192640127}
   m_Layer: 0
   m_Name: Storm
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.01, y: 0.53, z: 0}
-  m_LocalScale: {x: 2.8752, y: 2.8752, z: 2.8752}
+  m_LocalScale: {x: 2.8, y: 2.8, z: 2.8752}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -130,18 +130,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.49999997
---- !u!114 &4148817261753200384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5532262669086636914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 839d194180655914a87a1d807afc077a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Storm
 --- !u!95 &-4691115734922866635
 Animator:
   serializedVersion: 7
@@ -164,3 +152,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2419400455192640127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5532262669086636914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef25f7033153844f8d318bb601f2dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Storm
+  TimeOnStage: 1.5

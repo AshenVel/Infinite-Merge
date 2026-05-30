@@ -6,16 +6,20 @@ public class Ball : MonoBehaviour
 
     public GameObject BallExplosion;
 
+
     private Rigidbody2D rb;
 
     private float x;
     private float y;
 
+    private string Effect;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
+        Effect = Player.GetComponent<SpellsManager>().BallEffect;
+
         x = Player.GetComponent<SpellsManager>().Target.transform.position.x - Player.GetComponent<SpellsManager>().SpawnSpell.transform.position.x;
         y = Player.GetComponent<SpellsManager>().Target.transform.position.y - Player.GetComponent<SpellsManager>().SpawnSpell.transform.position.y;
     }
@@ -30,6 +34,19 @@ public class Ball : MonoBehaviour
     }
     private void Update()
     {
+
+        if (Effect == "fire")
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        else if (Effect == "ice")
+        {
+            GetComponent<SpriteRenderer>().color = Color.lightBlue;
+        }
+        else if (Effect == "thunder")
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
         rb.linearVelocity = new Vector2(5*x,5*y);
     }
 }

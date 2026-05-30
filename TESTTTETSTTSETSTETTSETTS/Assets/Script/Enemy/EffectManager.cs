@@ -10,8 +10,17 @@ public class EffectManager : MonoBehaviour
     private float FireCooldown = 0;
     private float BackupSpeed;
 
+    public float DamageFire = 2f;
+    public float DamageThunder = 1f;
 
-    public void ApplyEffect(string effect)
+    public float TimeFire = 3f;
+    public float TimeThunder = 3f;
+    public float TimeIce = 3f;
+
+    public float StrIce = 0.5f;
+
+
+public void ApplyEffect(string effect)
     {
         if(effect == "fire")
         {
@@ -52,17 +61,18 @@ public class EffectManager : MonoBehaviour
     private IEnumerator FireStartCooldown()
     {
         FireCooldownAct = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(TimeFire);
         FireCooldownAct = false;
     }
 
     private IEnumerator IceStartCooldown()
     {
-        GetComponent<ZombieScript>().Speed = GetComponent<ZombieScript>().Speed * 0.5f;
+        BackupSpeed = GetComponent<ZombieScript>().Speed;
+        GetComponent<ZombieScript>().Speed = GetComponent<ZombieScript>().Speed * StrIce;
         IceCooldownAct = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(TimeIce);
         IceCooldownAct = false;
-        GetComponent<ZombieScript>().Speed = GetComponent<ZombieScript>().Speed * 2f;
+        GetComponent<ZombieScript>().Speed = GetComponent<ZombieScript>().Speed / StrIce;
     }
 
     private IEnumerator ThunderStartCooldown()
@@ -70,7 +80,7 @@ public class EffectManager : MonoBehaviour
         BackupSpeed = GetComponent<ZombieScript>().Speed;
         GetComponent<ZombieScript>().Speed = 0;
         ThunderCooldownAct = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(TimeThunder);
         ThunderCooldownAct = false;
         GetComponent<ZombieScript>().Speed = BackupSpeed;
     }
@@ -82,7 +92,7 @@ public class EffectManager : MonoBehaviour
             FireCooldown += Time.deltaTime;
             if (FireCooldown >= 0.5f)
             {
-                GetComponent<HealthManager>().TakeDamage(2);
+                GetComponent<HealthManager>().TakeDamage(DamageFire);
                 FireCooldown = 0;
             }
         }
@@ -92,7 +102,7 @@ public class EffectManager : MonoBehaviour
             ThunderCooldown += Time.deltaTime;
             if (ThunderCooldown >= 0.5f)
             {
-                GetComponent<HealthManager>().TakeDamage(1);
+                GetComponent<HealthManager>().TakeDamage(DamageThunder);
                 ThunderCooldown = 0;
             }
         }

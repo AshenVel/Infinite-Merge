@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2065931717356159656}
   - component: {fileID: 5968098771870749132}
-  - component: {fileID: 3488260251653284304}
   - component: {fileID: 6516342906812664489}
-  - component: {fileID: 3853895504702671060}
   - component: {fileID: 3280595229046602696}
+  - component: {fileID: 4097422512519831745}
   m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
@@ -31,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.099, y: 3.48, z: 0}
-  m_LocalScale: {x: 0.46233615, y: 0.46233615, z: 0.46233615}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.46233615}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,18 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &3488260251653284304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501706674473762165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad9185eaefb8f3498787188ba91c300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Lase
 --- !u!58 &6516342906812664489
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,18 +130,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.50000006
---- !u!114 &3853895504702671060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501706674473762165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad9185eaefb8f3498787188ba91c300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Laser
 --- !u!95 &3280595229046602696
 Animator:
   serializedVersion: 7
@@ -177,3 +152,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4097422512519831745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501706674473762165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7031c69564cd12141ae900576d8c7404, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Laser
+  Damage: 30
